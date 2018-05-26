@@ -33,26 +33,25 @@ namespace LuckyNumbers
                 Console.WriteLine("Enter any number between " + (startNum) + " and " + (endNum) + " !");
                 userGuess = int.Parse(Console.ReadLine());
 
-                while ((userGuess < startNum || userGuess > endNum))//VALIDATE THAT NUMBER INPUT IS WITHIN RANGE
+                while ((userGuess < startNum || userGuess > endNum))//VALIDATE THAT NUMBER INPUT IS WITHIN RANGE WHILE LOOP
                 {
                     Console.WriteLine("Oops! The number you entered is outside of the range you chose. Please try again.");
                     userGuess = (int.Parse(Console.ReadLine()));//END VALIDATE THAT NUMBER INPUT IS WITHIN RANGE
-                }
+                }//END WHILE LOOP
                 guessNums[i] = userGuess;//ARRAY
             }
-
                 //END USER INPUT 6 GUESSES FOR LOOP
 
                 //RANDOM NUMBER GENERATOR
-                int[] RandNum = new int[6];
+                int[] RandNum = new int[6]; //INSTANTIATING RANDOM NUMBER ARRAY
                     Random r = new Random();
                     for (int j = 0; j < RandNum.Length; j++)
                     {
                         RandNum[j] = r.Next(startNum, endNum);
-                    }
+                Console.WriteLine("Lucky Number: " + RandNum[j]);
+            }
+            
                     //END RANDOM NUMBER GENERATOR
-
-                    //VALIDATE THAT INPUT NUMBERS ARE WITHIN RANGE
 
 
                 } //CLOSE MAIN METHOD
