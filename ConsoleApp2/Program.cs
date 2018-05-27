@@ -14,7 +14,14 @@ namespace LuckyNumbers
             int startNum;
             int endNum;
             int userGuess;
+            
+            //bool Contains;
+            //string matches;
             //END DECLARING VARIABLES 
+
+            //JACKPOT VALUE
+            Console.WriteLine("Wanna retire early? The lottery jackpot is currently at $5,125,000!");
+            //END JACKPOT VALUE 
 
             //WRITELINE LOWEST RANGE NUMBER INPUT
             Console.WriteLine("Please choose the lowest number you would like in your lottery.");
@@ -39,24 +46,34 @@ namespace LuckyNumbers
                     userGuess = (int.Parse(Console.ReadLine()));//END VALIDATE THAT NUMBER INPUT IS WITHIN RANGE
                 }//END WHILE LOOP
                 guessNums[i] = userGuess;//ARRAY
-            }
-                //END USER INPUT 6 GUESSES FOR LOOP
+            }//END FOR LOOP
+             //END USER INPUT 6 GUESSES FOR LOOP
 
-                //RANDOM NUMBER GENERATOR
-                int[] RandNum = new int[6]; //INSTANTIATING RANDOM NUMBER ARRAY
-                    Random r = new Random();
-                    for (int j = 0; j < RandNum.Length; j++)
-                    {
-                        RandNum[j] = r.Next(startNum, endNum);
-                Console.WriteLine("Lucky Number: " + RandNum[j]);
-            }
+            //RANDOM NUMBER GENERATOR
+            int[] randNum = new int[6];
+
+            Random r = new Random();
+            int count = (0);
+            for (int j = 0; j < randNum.Length; j++)
+            {
+                randNum[j] = r.Next(startNum, endNum);
+                Console.WriteLine("Lucky Number: " + randNum[j]);
+            }//END FOR LOOP
             
-                    //END RANDOM NUMBER GENERATOR
+            for (int i=0; i<guessNums.Length; i++)
+            {
+                for (int j=0; j<randNum.Length; j++)
+                    if (guessNums[i] == randNum[j])
+                    {
+                        count+= 1;
+                    }
+            } Console.WriteLine("You guessed " + count + " right!");
 
-
-                } //CLOSE MAIN METHOD
-            }
-        }
+        } //CLOSE MAIN METHOD
+    }
+}
+    
+    
     
 
 
