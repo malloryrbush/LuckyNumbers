@@ -14,13 +14,12 @@ namespace LuckyNumbers
             int startNum;
             int endNum;
             int userGuess;
-            
-            //bool Contains;
-            //string matches;
+            int jackpot = (600);
+
             //END DECLARING VARIABLES 
 
             //JACKPOT VALUE
-            Console.WriteLine("Wanna retire early? The lottery jackpot is currently at $5,125,000!");
+            Console.WriteLine("Wanna retire early? The lottery jackpot is currently at $" + jackpot + "!");
             //END JACKPOT VALUE 
 
             //WRITELINE LOWEST RANGE NUMBER INPUT
@@ -50,24 +49,67 @@ namespace LuckyNumbers
              //END USER INPUT 6 GUESSES FOR LOOP
 
             //RANDOM NUMBER GENERATOR
-            int[] randNum = new int[6];
+            int[] randNum = new int[6];//ARRAY
 
+            //RANDOM NUMBER GENERATOR
             Random r = new Random();
             int count = (0);
             for (int j = 0; j < randNum.Length; j++)
             {
                 randNum[j] = r.Next(startNum, endNum);
                 Console.WriteLine("Lucky Number: " + randNum[j]);
-            }//END FOR LOOP
-            
+            }//END RANDOM NUMBER GENERATOR
+
+            //COMPARING LIKE NUMBERS
             for (int i=0; i<guessNums.Length; i++)
             {
                 for (int j=0; j<randNum.Length; j++)
                     if (guessNums[i] == randNum[j])
                     {
                         count+= 1;
+                        break;
                     }
-            } Console.WriteLine("You guessed " + count + " right!");
+            } Console.WriteLine("You guessed " + count + " numbers correctly!");
+            //END COMPARING LIKE NUMBERS.
+
+            //CALCULATE WINNINGS
+            switch (count)
+            {
+                case 0:
+                    Console.WriteLine("You won $" + (jackpot * 0) + ".");
+                    break;
+
+                case 1:
+                    Console.WriteLine("You won $" + (jackpot / 6) + ".");
+                    break;
+
+                case 2:
+                    Console.WriteLine("You won $" + (jackpot / 5) + ".");
+                    break;
+
+                case 3:
+                    Console.WriteLine("You won $" + (jackpot / 4) + ".");
+                    break;
+
+                case 4:
+                    Console.WriteLine("You won $" + (jackpot / 3) + ".");
+                    break;
+
+                case 5:
+                    Console.WriteLine("You won $" + (jackpot / 2) + ".");
+                    break;
+
+                case 6:
+                    Console.WriteLine("You won $" + (jackpot) + ".");
+                    break;
+            }
+
+
+
+
+
+
+
 
         } //CLOSE MAIN METHOD
     }
