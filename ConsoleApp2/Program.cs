@@ -48,7 +48,7 @@ namespace LuckyNumbers
                 //END WRITELINE HIGHEST RANGE NUMBER INPUT
 
                 //USER INPUT 6 GUESSES FOR LOOP
-                int[] guessArray = new int[6];
+                int[] guessArray = new int[6];//ARRAY
                 for (int i = 0; i < guessArray.Length; i++)
                 {
                     Console.WriteLine("Enter any number between " + (startNum) + " and " + (endNum) + " !");
@@ -63,22 +63,15 @@ namespace LuckyNumbers
                     {
                         Console.WriteLine("Oops! The number you entered is outside of the range you chose. Please try again.");
                         userGuess = (int.Parse(Console.ReadLine()));//END VALIDATE THAT NUMBER INPUT IS WITHIN RANGE
-
-                        //if (guessArray.Contains(userGuess))
-                        //{ Console.WriteLine("Oops! Looks like you entered the same number twice. Please enter a different number.");
-                            
-                        //}
                         
                         break;
                     }
-                    guessArray[i] = userGuess;//ARRAY
+                    guessArray[i] = userGuess;
                 }
                 //END USER INPUT 6 GUESSES FOR LOOP
 
                 //RANDOM NUMBER GENERATOR
                 int[] randNum = new int[6];//ARRAY
-
-                //RANDOM NUMBER GENERATOR
                 Random r = new Random();
                 int count = (0);
                 for (int j = 0; j < randNum.Length; j++)
@@ -128,7 +121,7 @@ namespace LuckyNumbers
                         break;
 
                     case 6:
-                        Console.WriteLine("You won $" + (jackpot) + ".");
+                        Console.WriteLine("You won $" + (jackpot / 1) + ".");
                         break;
                 } //END CALCULATE WINNINGS
 
@@ -155,10 +148,3 @@ namespace LuckyNumbers
         }//CLOSE MAIN METHOD
     }
 }
-
-
-    
-    
-    
-
-
