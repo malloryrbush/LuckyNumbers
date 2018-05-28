@@ -11,18 +11,13 @@ namespace LuckyNumbers
         static void Main(string[] args)
         {
 
-
             //DECLARING VARIABLES
             int startNum;
             int endNum;
             int userGuess;
             int jackpot = (600);
             string exitResp;
-            //END DECLARING VARIABLES 
-
-            ////JACKPOT VALUE
-            //Console.WriteLine("The lottery jackpot is currently at $" + jackpot + "!");
-            ////END JACKPOT VALUE 
+            //END DECLARING VARIABLES  
 
             Console.WriteLine("Want to play a game? YES/NO");
             exitResp = Console.ReadLine().ToLower();
@@ -53,18 +48,30 @@ namespace LuckyNumbers
                 //END WRITELINE HIGHEST RANGE NUMBER INPUT
 
                 //USER INPUT 6 GUESSES FOR LOOP
-                int[] guessNums = new int[6];//ARRAY
-                for (int i = 0; i < guessNums.Length; i++)
+                int[] guessArray = new int[6];
+                for (int i = 0; i < guessArray.Length; i++)
                 {
                     Console.WriteLine("Enter any number between " + (startNum) + " and " + (endNum) + " !");
                     userGuess = int.Parse(Console.ReadLine());
 
+                    if (guessArray.Contains(userGuess))//CHECKING FOR DUPLICATE ENTRIES
+                    {
+                        Console.WriteLine("Oops! Looks like you entered the same number twice. Please enter a different number.");
+
+                    }//END CHECKING FOR DUPLICATE ENTRIES
                     while ((userGuess < startNum || userGuess > endNum))//VALIDATE THAT NUMBER INPUT IS WITHIN RANGE WHILE LOOP
                     {
                         Console.WriteLine("Oops! The number you entered is outside of the range you chose. Please try again.");
                         userGuess = (int.Parse(Console.ReadLine()));//END VALIDATE THAT NUMBER INPUT IS WITHIN RANGE
+
+                        //if (guessArray.Contains(userGuess))
+                        //{ Console.WriteLine("Oops! Looks like you entered the same number twice. Please enter a different number.");
+                            
+                        //}
+                        
+                        break;
                     }
-                    guessNums[i] = userGuess;//ARRAY
+                    guessArray[i] = userGuess;//ARRAY
                 }
                 //END USER INPUT 6 GUESSES FOR LOOP
 
@@ -81,10 +88,10 @@ namespace LuckyNumbers
                 }//END RANDOM NUMBER GENERATOR
 
                 //COMPARING LIKE NUMBERS
-                for (int i = 0; i < guessNums.Length; i++)
+                for (int i = 0; i < guessArray.Length; i++)
                 {
                     for (int j = 0; j < randNum.Length; j++)
-                        if (guessNums[i] == randNum[j])
+                        if (guessArray[i] == randNum[j])
                         {
                             count += 1;
                             break;
